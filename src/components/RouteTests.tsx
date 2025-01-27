@@ -1,5 +1,6 @@
 import React from 'react';
-import { Network, AlertCircle } from 'lucide-react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faNetworkWired, faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
 
 interface RouteTest {
   id: number;
@@ -93,7 +94,7 @@ const RouteTests: React.FC = () => {
           >
             <div className="flex items-center justify-between mb-2">
               <div className="flex items-center gap-2">
-                <Network className="h-5 w-5" />
+                <FontAwesomeIcon icon={faNetworkWired} className="h-5 w-5" />
                 <span className="font-medium">
                   {route.source} → {route.destination}
                 </span>
@@ -113,7 +114,7 @@ const RouteTests: React.FC = () => {
             </div>
             {route.status === 'failed' && (
               <div className="mt-3 flex items-center gap-2 text-red-600 text-sm">
-                <AlertCircle className="h-4 w-4" />
+                <FontAwesomeIcon icon={faExclamationCircle} className="h-4 w-4" />
                 <span>Route trace incomplete - destination unreachable</span>
               </div>
             )}

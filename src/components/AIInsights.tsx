@@ -1,10 +1,11 @@
 import React from 'react';
-import { AlertTriangle, Database, Zap, Settings, Clock, Server, Shield, Cpu } from 'lucide-react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTriangleExclamation, faDatabase, faBolt, faCog, faClock, faServer, faShield, faMemory } from '@fortawesome/free-solid-svg-icons';
 
 interface Insight {
   id: number;
   type: 'alert' | 'backup' | 'performance' | 'config' | 'security';
-  icon: React.ElementType;
+  icon: any;
   title: string;
   description: string;
   severity: 'low' | 'medium' | 'high';
@@ -17,7 +18,7 @@ const AIInsights: React.FC = () => {
     {
       id: 1,
       type: 'alert',
-      icon: AlertTriangle,
+      icon: faTriangleExclamation,
       title: 'Alert Pattern Change',
       description: 'Unusual spike in authentication failures detected across multiple application servers',
       severity: 'high',
@@ -27,7 +28,7 @@ const AIInsights: React.FC = () => {
     {
       id: 2,
       type: 'backup',
-      icon: Database,
+      icon: faDatabase,
       title: 'Failed Backup',
       description: 'Database backup failed on primary database server during scheduled window',
       severity: 'medium',
@@ -37,7 +38,7 @@ const AIInsights: React.FC = () => {
     {
       id: 3,
       type: 'performance',
-      icon: Zap,
+      icon: faBolt,
       title: 'CPU Spike Detected',
       description: 'Sustained CPU usage above 90% on cache server for last 15 minutes',
       severity: 'high',
@@ -47,7 +48,7 @@ const AIInsights: React.FC = () => {
     {
       id: 4,
       type: 'config',
-      icon: Settings,
+      icon: faCog,
       title: 'Configuration Issue',
       description: 'Non-standard hostname pattern detected on newly provisioned instances',
       severity: 'low',
@@ -57,7 +58,7 @@ const AIInsights: React.FC = () => {
     {
       id: 5,
       type: 'security',
-      icon: Shield,
+      icon: faShield,
       title: 'Security Update Required',
       description: 'Critical security patches pending installation on multiple servers',
       severity: 'high',
@@ -67,7 +68,7 @@ const AIInsights: React.FC = () => {
     {
       id: 6,
       type: 'performance',
-      icon: Cpu,
+      icon: faMemory,
       title: 'Memory Usage Alert',
       description: 'High memory utilization trending upward over past 6 hours',
       severity: 'medium',
@@ -112,19 +113,19 @@ const AIInsights: React.FC = () => {
             className={`insight-item p-4 rounded-md border ${getSeverityClass(insight.severity)}`}
           >
             <div className="flex items-start gap-3">
-              <insight.icon className={`h-5 w-5 flex-shrink-0 ${getIconColor(insight.severity)}`} />
+              <FontAwesomeIcon icon={insight.icon} className={`h-5 w-5 flex-shrink-0 ${getIconColor(insight.severity)}`} />
               <div className="flex-grow">
                 <div className="flex items-center justify-between">
                   <h3 className="font-medium text-sm">{insight.title}</h3>
                   <div className="flex items-center gap-2">
-                    <Clock className="h-4 w-4 text-gray-400" />
+                    <FontAwesomeIcon icon={faClock} className="h-4 w-4 text-gray-400" />
                     <span className="text-xs text-gray-500">{insight.timestamp}</span>
                   </div>
                 </div>
                 <p className="text-sm text-gray-600 mt-1">{insight.description}</p>
                 <div className="mt-2">
                   <div className="flex items-center gap-2">
-                    <Server className="h-4 w-4 text-gray-400" />
+                    <FontAwesomeIcon icon={faServer} className="h-4 w-4 text-gray-400" />
                     <div className="flex flex-wrap gap-1">
                       {insight.affectedHosts.map((host, index) => (
                         <span

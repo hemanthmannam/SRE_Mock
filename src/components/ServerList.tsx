@@ -1,5 +1,6 @@
 import React from 'react';
-import { Server, AlertTriangle, CheckCircle } from 'lucide-react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faServer, faTriangleExclamation, faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 
 interface InfraNode {
   id: number;
@@ -30,13 +31,13 @@ const ServerList: React.FC<ServerListProps> = ({ searchQuery }) => {
   const getStatusIcon = (status: string) => {
     switch (status) {
       case 'healthy':
-        return <CheckCircle className="h-5 w-5 text-green-500" />;
+        return <FontAwesomeIcon icon={faCheckCircle} className="h-5 w-5 text-green-500" />;
       case 'warning':
-        return <AlertTriangle className="h-5 w-5 text-yellow-500" />;
+        return <FontAwesomeIcon icon={faTriangleExclamation} className="h-5 w-5 text-yellow-500" />;
       case 'critical':
-        return <AlertTriangle className="h-5 w-5 text-red-500" />;
+        return <FontAwesomeIcon icon={faTriangleExclamation} className="h-5 w-5 text-red-500" />;
       default:
-        return <Server className="h-5 w-5 text-gray-500" />;
+        return <FontAwesomeIcon icon={faServer} className="h-5 w-5 text-gray-500" />;
     }
   };
 

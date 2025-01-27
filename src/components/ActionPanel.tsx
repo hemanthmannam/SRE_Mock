@@ -1,5 +1,6 @@
 import React from 'react';
-import { RefreshCw, Power, Play, AlertOctagon } from 'lucide-react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faRefresh, faPowerOff, faPlay, faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
 
 const ActionPanel: React.FC = () => {
   const handleAction = (action: string) => {
@@ -15,7 +16,7 @@ const ActionPanel: React.FC = () => {
           onClick={() => handleAction('restart-process')}
           className="w-full flex items-center justify-center gap-2 bg-blue-50 hover:bg-blue-100 text-blue-700 py-2 px-4 rounded-md transition-colors"
         >
-          <RefreshCw className="h-4 w-4" />
+          <FontAwesomeIcon icon={faRefresh} className="h-4 w-4" />
           <span>Restart Process</span>
         </button>
 
@@ -23,7 +24,7 @@ const ActionPanel: React.FC = () => {
           onClick={() => handleAction('restart-server')}
           className="w-full flex items-center justify-center gap-2 bg-yellow-50 hover:bg-yellow-100 text-yellow-700 py-2 px-4 rounded-md transition-colors"
         >
-          <Power className="h-4 w-4" />
+          <FontAwesomeIcon icon={faPowerOff} className="h-4 w-4" />
           <span>Restart Server</span>
         </button>
 
@@ -31,7 +32,7 @@ const ActionPanel: React.FC = () => {
           onClick={() => handleAction('start-backup')}
           className="w-full flex items-center justify-center gap-2 bg-green-50 hover:bg-green-100 text-green-700 py-2 px-4 rounded-md transition-colors"
         >
-          <Play className="h-4 w-4" />
+          <FontAwesomeIcon icon={faPlay} className="h-4 w-4" />
           <span>Start Backup</span>
         </button>
 
@@ -39,7 +40,7 @@ const ActionPanel: React.FC = () => {
           onClick={() => handleAction('clear-alerts')}
           className="w-full flex items-center justify-center gap-2 bg-red-50 hover:bg-red-100 text-red-700 py-2 px-4 rounded-md transition-colors"
         >
-          <AlertOctagon className="h-4 w-4" />
+          <FontAwesomeIcon icon={faExclamationTriangle} className="h-4 w-4" />
           <span>Clear Alerts</span>
         </button>
       </div>
